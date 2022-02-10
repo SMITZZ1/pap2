@@ -273,7 +273,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                         <div class="col-3" style="text-align: center;">
                             <h2>Informações</h2>
-                            <a href="#">Termos e condições</a>
+                            <a href="termos.html">Termos e condições</a>
                             <a href="#">Livro de reclamações</a>
                         </div>
                     </div>
