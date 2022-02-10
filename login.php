@@ -277,10 +277,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <a href="#">Livro de reclamações</a>
                         </div>
                     </div>
+                    <script>
+                        window.onload = function()
+                        {
+                            document.getElementById("ano").innerHTML = new Date().getFullYear();
+                        }
+                    </script>
+
                     <div class="row">
                         <div class="col-12">
-                            <p style="text-align: center;">2021 &copy Stormi4u - Todos os direitos reservados.</p>
-                            
+                            <p style="text-align: center;"><span id="ano"></span> &copy Stormi4u - Todos os direitos reservados.</p> 
                         </div>
                     </div>
                 </div>
