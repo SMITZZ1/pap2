@@ -1,98 +1,76 @@
 <?php
-// Include config file
 require_once "config.php";
 $link = mysqli_connect('localhost', 'gabrielcarvalho', 'Password123', 'stormi');
 
- 
-// Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
  
-// Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
-    // Validate username
+    // Validar user
     if(empty(trim($_POST["username"]))){
-        $username_err = "Please enter a username.";
+        $username_err = "Por favor insira o nome.";
     } elseif(!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))){
-        $username_err = "Username can only contain letters, numbers, and underscores.";
+        $username_err = "O nome apenas contém letras, numeros, e underscores.";
     } else{
-        // Prepare a select statement
         $sql = "SELECT id FROM users WHERE username = ?";
         
         if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_username);
             
-            // Set parameters
             $param_username = trim($_POST["username"]);
             
-            // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
-                /* store result */
                 mysqli_stmt_store_result($stmt);
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){
-                    $username_err = "This username is already taken.";
+                    $username_err = "Nome inválido.";
                 } else{
                     $username = trim($_POST["username"]);
                 }
             } else{
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "Erro.";
             }
 
-            // Close statement
             mysqli_stmt_close($stmt);
         }
     }
     
-    // Validate password
     if(empty(trim($_POST["password"]))){
-        $password_err = "Please enter a password.";     
+        $password_err = "Insira a password.";     
     } elseif(strlen(trim($_POST["password"])) < 6){
-        $password_err = "Password must have atleast 6 characters.";
+        $password_err = "A password tem que ter pelo menos 6 letras.";
     } else{
         $password = trim($_POST["password"]);
     }
     
-    // Validate confirm password
     if(empty(trim($_POST["confirm_password"]))){
-        $confirm_password_err = "Please confirm password.";     
+        $confirm_password_err = "Confirme a Password.";     
     } else{
         $confirm_password = trim($_POST["confirm_password"]);
         if(empty($password_err) && ($password != $confirm_password)){
-            $confirm_password_err = "Password did not match.";
+            $confirm_password_err = "A password não é igual.";
         }
     }
     
-    // Check input errors before inserting in database
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
         
-        // Prepare an insert statement
         $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
          
         if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
             
-            // Set parameters
             $param_username = $username;
-            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+            $param_password = password_hash($password, PASSWORD_DEFAULT); // Codificar a pass
             
-            // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
-                // Redirect to login page
                 header("location: login.php");
             } else{
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "Erro.";
             }
-
-            // Close statement
             mysqli_stmt_close($stmt);
         }
     }
-    
-    // Close connection
     mysqli_close($link);
 }
 ?>
@@ -163,10 +141,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </style>
 
         <body>
-            <div class="row">
+        <div class="row">
                 <div class="topnav" id="myTopnav">
                     <div class="logo">
-                        <a href="index.html" style="padding: 0px 0px 0px 0px; margin: 8px;"> <img src="Imagens/Pap-Smitzz.png" heigth="50" width="80"> </a>
+                        <a href="index.html" style="padding: 0px 0px 0px 0px; margin: 8px 8px 2px 8px; height: 38px;"> <img src="Imagens/Pap-Smitzz.png" heigth="50" width="80"> </a>
                     </div>
                     <!-- Dropdown -->
                     <div class="dropdown">
@@ -176,7 +154,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <div class="dropdown-content">
                             <a href="#">Sweat</a>
                             <a href="#">T-shirt</a>
-                            <a href="homem.html">Ver tudo</a>
+                            <div class="dropdown-content1">
+                                <a href="homem.html">Ver tudo</a>
+                            </div>
+                            
                         </div>
                     </div>
                     <div class="dropdown">
@@ -186,7 +167,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <div class="dropdown-content">
                             <a href="#">Sweat</a>
                             <a href="#">T-shirt</a>
-                            <a href="#">Ver tudo</a>
+                            <div class="dropdown-content1">
+                                <a href="mulher.html">Ver tudo</a>
+                            </div>
                         </div>
                     </div>
                     <div class="dropdown">
@@ -196,13 +179,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <div class="dropdown-content">
                             <a href="#">Sweat</a>
                             <a href="#">T-shirt</a>
-                            <a href="#">Ver tudo</a>
+                            <div class="dropdown-content1">
+                                <a href="#">Ver tudo</a>
+                            </div>
                         </div>
                     </div>
                     <a href="#"><i class="fa fa-fw fa-heart"></i> Favoritos</a>
                     <div class="headerrigth">
-                        <a href="login.html"><i class="fa fa-fw fa-shopping-cart"></i> Carrinho</a>
-                        <a href="login.html" title="Entrar / Registar"><i class="fa fa-fw fa-user"></i> Entrar / Registar</a>
+                        <a href="#"><i class="fa fa-fw fa-shopping-cart"></i> Carrinho</a>
+                        <a href="login.php" title="Entrar / Registar"><i class="fa fa-fw fa-user"></i> Entrar / Registar</a>
                     </div>
 
                     <!-- Para quando estiver no mobile a navbar ficar responsiva -->
@@ -274,7 +259,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <div class="col-3" style="text-align: center;">
                             <h2>Informações</h2>
                             <a href="termos.html">Termos e condições</a>
-                            <a href="#">Livro de reclamações</a>
+                            <a href="https://www.livroreclamacoes.pt/Inicio/">Livro de reclamações</a>
                         </div>
                     </div>
                     <script>

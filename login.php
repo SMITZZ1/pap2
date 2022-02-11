@@ -3,79 +3,60 @@ session_start();
 
 require_once "config.php";
  
-// Define variables and initialize with empty values
 $username = $password = "";
 $username_err = $password_err = $login_err = "";
  
-// Processing form data when form is submitted
+// Submeter os dados na db
 if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
-    // Check if username is empty
     if(empty(trim($_POST["username"]))){
-        $username_err = "Please enter username.";
+        $username_err = "Insira o nome.";
     } else{
         $username = trim($_POST["username"]);
     }
     
-    // Check if password is empty
     if(empty(trim($_POST["password"]))){
-        $password_err = "Please enter your password.";
+        $password_err = "Insira a Password.";
     } else{
         $password = trim($_POST["password"]);
     }
     
-    // Validate credentials
+    // Validar
     if(empty($username_err) && empty($password_err)){
-        // Prepare a select statement
         $sql = "SELECT id, username, password FROM users WHERE username = ?";
         
         if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_username);
-            
-            // Set parameters
             $param_username = $username;
             
-            // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
-                // Store result
                 mysqli_stmt_store_result($stmt);
                 
-                // Check if username exists, if yes then verify password
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
-                    // Bind result variables
                     mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
-                            // Password is correct, so start a new session
                             session_start();
                             
-                            // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;                            
                             
-                            // Redirect user to welcome page
+                            // CASO ESTEJA OS DADOS TODOS BEM
                             header("location: index.html");
                         } else{
-                            // Password is not valid, display a generic error message
-                            $login_err = "Invalid username or password.";
+                            $login_err = "Nome ou password inválida.";
                         }
                     }
                 } else{
-                    // Username doesn't exist, display a generic error message
-                    $login_err = "Invalid username or password.";
+                    $login_err = "Nome ou password inválida.";
                 }
             } else{
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "Errp.";
             }
 
-            // Close statement
             mysqli_stmt_close($stmt);
         }
     }
-    
-    // Close connection
     mysqli_close($link);
 }
 ?>
@@ -98,30 +79,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <meta name="keywords" content="roupa stormi stormi4u">
             <meta name="author" content="Gabriel Carvalho">
             <meta name="viewport" content="width=device-width, initial-scale=1">
-
-            <script type="module">
-            // Import the functions you need from the SDKs you need
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-app.js";
-            import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-analytics.js";
-            // TODO: Add SDKs for Firebase products that you want to use
-            // https://firebase.google.com/docs/web/setup#available-libraries
-
-            // Your web app's Firebase configuration
-            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-            const firebaseConfig = {
-                apiKey: "AIzaSyDfHyVHi4gLHXrcBRgc8A6UWy6J3sx7Ep8",
-                authDomain: "smitzz.firebaseapp.com",
-                projectId: "smitzz",
-                storageBucket: "smitzz.appspot.com",
-                messagingSenderId: "347599012494",
-                appId: "1:347599012494:web:2fd56c853d18f182c23fdf",
-                measurementId: "G-71P8FR166P"
-            };
-
-            // Initialize Firebase
-            const app = initializeApp(firebaseConfig);
-            const analytics = getAnalytics(app);
-            </script>
 
             <style>
                 @media screen and (max-width: 600px) {
@@ -173,10 +130,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </style>
 
         <body>
-            <div class="row">
+        <div class="row">
                 <div class="topnav" id="myTopnav">
                     <div class="logo">
-                        <a href="index.html" style="padding: 0px 0px 0px 0px; margin: 8px;"> <img src="Imagens/Pap-Smitzz.png" heigth="50" width="80"> </a>
+                        <a href="index.html" style="padding: 0px 0px 0px 0px; margin: 8px 8px 2px 8px; height: 38px;"> <img src="Imagens/Pap-Smitzz.png" heigth="50" width="80"> </a>
                     </div>
                     <!-- Dropdown -->
                     <div class="dropdown">
@@ -186,7 +143,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <div class="dropdown-content">
                             <a href="#">Sweat</a>
                             <a href="#">T-shirt</a>
-                            <a href="homem.html">Ver tudo</a>
+                            <div class="dropdown-content1">
+                                <a href="homem.html">Ver tudo</a>
+                            </div>
+                            
                         </div>
                     </div>
                     <div class="dropdown">
@@ -196,7 +156,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <div class="dropdown-content">
                             <a href="#">Sweat</a>
                             <a href="#">T-shirt</a>
-                            <a href="#">Ver tudo</a>
+                            <div class="dropdown-content1">
+                                <a href="mulher.html">Ver tudo</a>
+                            </div>
                         </div>
                     </div>
                     <div class="dropdown">
@@ -206,13 +168,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <div class="dropdown-content">
                             <a href="#">Sweat</a>
                             <a href="#">T-shirt</a>
-                            <a href="#">Ver tudo</a>
+                            <div class="dropdown-content1">
+                                <a href="#">Ver tudo</a>
+                            </div>
                         </div>
                     </div>
                     <a href="#"><i class="fa fa-fw fa-heart"></i> Favoritos</a>
                     <div class="headerrigth">
                         <a href="#"><i class="fa fa-fw fa-shopping-cart"></i> Carrinho</a>
-                        <a href="login.html" title="Entrar / Registar"><i class="fa fa-fw fa-user"></i> Entrar / Registar</a>
+                        <a href="login.php" title="Entrar / Registar"><i class="fa fa-fw fa-user"></i> Entrar / Registar</a>
                     </div>
 
                     <!-- Para quando estiver no mobile a navbar ficar responsiva -->
@@ -274,9 +238,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <div class="col-3" style="text-align: center;">
                             <h2>Informações</h2>
                             <a href="termos.html">Termos e condições</a>
-                            <a href="#">Livro de reclamações</a>
+                            <a href="https://www.livroreclamacoes.pt/Inicio/" >Livro de reclamações</a>
                         </div>
                     </div>
+
                     <script>
                         window.onload = function()
                         {
