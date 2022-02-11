@@ -197,12 +197,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="input-field">
                             <label>Nome</label><br />
-                            <input type="text" name="username" placeholder="Insira o seu nome" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                            <input type="text" name="username" placeholder="Insira o seu nome" class="form-control" <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
                             <span class="invalid-feedback"><?php echo $username_err; ?></span>
                         </div>    
                         <div class="input-field">
                             <label>Palavra passe</label><br />
-                            <input type="password" name="password" placeholder="insira a palavra passe" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
+                            <input type="password" name="password" placeholder="insira a palavra passe" class="form-control" <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
                             <span class="invalid-feedback"><?php echo $password_err; ?></span>
                         </div>
                         <div class="input-field">

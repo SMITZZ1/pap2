@@ -49,7 +49,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $confirm_password = trim($_POST["confirm_password"]);
         if(empty($password_err) && ($password != $confirm_password)){
-            $confirm_password_err = "A password não é igual.";
+            $confirm_password_err = "A password não coincide.";
         }
     }
     
@@ -78,7 +78,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <!DOCTYPE html>
 <html lang="pt-PT">
         <head>
-            <link rel="stylesheet" type="text/css" href="estilos.css">
+            <link rel="stylesheet" type="text/css" href="register.css">
             <!-- Bibliotecas extras -->
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
             <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
@@ -208,31 +208,32 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </script>
 
             <div class="conteudo">
-                <!-- Form para o login -->
-                <div class="wrapper">
-                    <p>Please fill this form to create an account.</p>
+                <!-- Form para o Registo -->
+                <main class="login centrado">
+                    <h2>Registe-se</h2>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                        <div class="form-group">
-                            <label>Username</label>
-                            <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                        <div class="input-field">
+                            <label>Nome</label><br />
+                            <input type="text" name="username" class="form-control" placeholder="Insira o seu nome" <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
                             <span class="invalid-feedback"><?php echo $username_err; ?></span>
                         </div>    
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
+                        <div class="input-field">
+                            <label>Palavra Passe</label><br />
+                            <input type="password" name="password" class="form-control" placeholder="Insira a palavra passe"<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
                             <span class="invalid-feedback"><?php echo $password_err; ?></span>
                         </div>
-                        <div class="form-group">
-                            <label>Confirm Password</label>
-                            <input type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
+                        <div class="input-field">
+                            <br />
+                            <label>Confirmar Palavra Passe</label><br />
+                            <input type="password" name="confirm_password" class="form-control" placeholder="Insira novamente a palavra passe" <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
                             <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
                         </div>
-                        <div class="form-group">
-                            <input type="submit" class="btn btn-primary" value="Submit">
-                            <input type="reset" class="btn btn-secondary ml-2" value="Reset">
+                        <div class="input-field">
+                            <input type="submit" value="Registar">
+                            <input type="reset" class="button12" value="Cancelar">
                         </div>
-                        <p>Already have an account? <a href="login.php">Login here</a>.</p>
-                    </form>
+                        <p>Já tem conta criada? <a href="login.php" style="text-decoration:none;">Dê login</a></p>
+                </main>
                 </div>
 
                 <div class="footer">
