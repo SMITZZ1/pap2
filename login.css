@@ -226,48 +226,6 @@ h3{
   background-color: white;
 }
 
-/*Botões*/
-.btn{
-  display: inline-block;
-  font-weight: 400;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: center;
-  border: 1px solid;
-  border-radius: 2.5px;
-  padding: 3.5px 7.5px;
-  text-decoration: none;
-  height:30px ;
-  width:auto ;
-}
-
-.btn-login{
-  background-color: #333;
-  color: #ffffff;
-}
-/*Estilos para os formulários*/
-input[type=text], select {
-  width: 100%;
-  padding: 8px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 2px solid ;
-  border-radius: 4px;
-  box-sizing: border-box;
-  background-color: #ffffff;
-  color: #000000
-}
-input[type=password], select {
-  width: 100%;
-  padding: 8px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 2px solid ;
-  border-radius: 4px;
-  box-sizing: border-box;
-  background-color: #ffffff;
-  color: #000000;
-}
 
 ::placeholder { 
   color: #ffffff;
@@ -277,11 +235,6 @@ input[type=password], select {
 .centrado{
   margin: auto;
   width: 100%;
-  text-align: center;
-}
-
-.subtitle_login{
-  color: #ffffff;
 }
 
 /* Para a imagem na página principal */
@@ -295,7 +248,7 @@ input[type=password], select {
 }
 
 .conteudo{
-  margin-top: 48px;
+  margin-top: 96px;
 }
 
 .infos4{
@@ -306,4 +259,111 @@ input[type=password], select {
   border-right-color: #000000;
   height: 100px;
   position: relative;
+}
+
+main.login {    /* configurações da classe main.container, como cor de fundo, sombras, tamanhos */
+    background: white;
+    margin-top: 40px;
+    margin-bottom: 70px;
+    max-width: 350px;
+    min-height: 40vh;
+    padding: 2rem; /* entendo como distância do conteúdo de uma margem do container */
+    box-shadow: 5px 5px 15px rgb(0, 0, 0, 0.2); /* sombra da caixa */
+    border-radius: 8px;
+}
+
+main h2 {   /* configuraões do título h2, onde está a palavra LOGIN */
+    font-weight: 600; /* definir a espessura da fonte */
+    margin-top: 2rem;
+    margin-bottom: 2rem; /* define a distância abaixo do texto usando medida em rem */
+    position: relative; /* servirá para definir posição absoluta linhazinha roxa abaixo de login */
+}
+
+main h2::before {   /* pseudoclasse before para h2, para criar a linhazinha roxa abaixo de login */
+    content: ''; /* conteúdo vazio representado por '' (duas aspas simples)*/
+    position: absolute;
+    height: 4px;
+    width: 25px;
+    bottom: 3px;
+    left: 0;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #8a8a8a, #b1b1b1);
+}
+
+form { /* form com display flex para o botão CONTINUAR ocupar a largura total da caixa */
+    display: flex; 
+    flex-direction: column;
+}
+
+.input-field {
+    position: relative; /* para criar linha abaixo */
+    width: 100%;
+}
+
+form .input-field:first-child { /* dentro do form, dentro da classe input.field, o primeiro filho terá margem inferior de 1.5rem - método utilizado para aplicar essa margem apenas no primeiro campo e não aplicando no segundo, assim, não aumentando a distância do segundo do botão CONTINUAR */
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.input-field .underline::before {   /* formatação da classe underline ou linha abaixo dos campos */
+    content: '';
+    position: absolute; /* posição absoluta em relação ao PAI que é relativo */
+    height: 1px; /* altura da linha será bem fininha */
+    width: 100%; /* largura de 100% para acompanhar toda a largura do campo INPUT */
+    bottom: -5px;
+    left: 0;
+    background: lightgray;
+}
+
+.input-field .underline::after {
+    content: '';
+    position: absolute; /* posição absoluta em relação ao PAI que é relativo */
+    height: 1px; /* altura da linha será bem fininha */
+    width: 100%; /* largura de 100% para acompanhar toda a largura do campo INPUT */
+    bottom: -5px;
+    left: 0;
+    background: gray;
+    transform: scaleX(0); /* No eixo x a cor fica não visível */
+    transition: all 0.3s ease-in-out;  /* adiciona o efeito de transição de dentro para fora, para as linhas */
+}
+
+.input-field input:focus ~ .underline::after {  /* o acento circunflexo indicará que será pega as configurações do .underline::after após acontecer o input:focus, ou seja, quando o campo estiver ativo, as linhas abaixo deles mudarão para a cor definida no AFTER */
+    transform: scalex(1); /* para que a cor das linhas mudem da BEFORE para AFTER quando os campos estiverem focados */
+}
+
+.input-field input {
+    outline: none; /* para eliminar a borda automática que vem entorno de cada caixa de input */ 
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+}
+
+.input-field input::placeholder {   /* texto "fantasma" antes da digitação de algo dentro do campo */
+    color: rgba(0, 0, 0, 0.445);
+}
+
+form input[type="submit"] /* seletor type submit para o único botão da tela */{
+    width: 100%;
+    margin-top: 2rem; /* para separar dos campos de texto */
+    padding: 0.4rem;
+    background: linear-gradient(to left, #000, #020202); /* #7e7e7e, #5c5c5c (aspecto escuro) */
+    cursor: pointer; /* para mudar o cursor no formato de "mãozinha" toda vez que passa sobre o botão */
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 300; /* definir espessura da letra */
+    border-radius: 4px; /* arredondar borda do botão */
+    transition: all 0.3s ease; /* transição de 0.3 segundos no MODO DE TRANSIÇÃO ease (pesquisar sobre)*/
+}
+
+form input[type="submit"]:hover { /* HOVER para dar efeito ao passar o mouse pelo botão CONTINUAR */
+    letter-spacing: 0.5px; /* aumentado um pouco o espaçamento entre as letras para dar efeito */
+    background: linear-gradient(to right, #3ca0f1, #2196F3); /* alternado para direita, porém o CSS não suporta o efeito suave com linear-gradient*/
+    color: black;
+    font-weight: 500;
+}
+
+.text-block {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 0.8rem; /* fonte diminuida */
+    text-align: center; /* para centralizar texto no meio da caixa */
 }

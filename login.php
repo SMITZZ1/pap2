@@ -64,7 +64,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <!DOCTYPE html>
 <html lang="pt-PT">
         <head>
-            <link rel="stylesheet" type="text/css" href="estilos.css">
+            <link rel="stylesheet" type="text/css" href="login.css">
             <!-- Bibliotecas extras -->
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
             <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
@@ -81,6 +81,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <meta name="viewport" content="width=device-width, initial-scale=1">
 
             <style>
+
                 @media screen and (max-width: 600px) {
                     .topnav a:not(:first-child), .dropdown .dropbtn {
                         display: none;
@@ -186,32 +187,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             <div class="conteudo">
                 <!-- Form para o login -->
-                <div class="wrapper">
-                    <h1>Login</h1>
-
+                <main class="login centrado">
+                    <h2>Login</h2>
                     <?php 
                     if(!empty($login_err)){
                         echo '<div class="alert alert-danger">' . $login_err . '</div>';
                     }        
                     ?>
-
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                        <div class="form-group">
-                            <label>Username</label><br />
-                            <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                        <div class="input-field">
+                            <label>Nome</label><br />
+                            <input type="text" name="username" placeholder="Insira o seu nome" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
                             <span class="invalid-feedback"><?php echo $username_err; ?></span>
                         </div>    
-                        <div class="form-group">
-                            <label>Password</label><br />
-                            <input style="background-color:#ffffff" type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
+                        <div class="input-field">
+                            <label>Palavra passe</label><br />
+                            <input type="password" name="password" placeholder="insira a palavra passe" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
                             <span class="invalid-feedback"><?php echo $password_err; ?></span>
                         </div>
-                        <div class="form-group">
-                            <input type="submit" class="button1" value="Login">
+                        <div class="input-field">
+                            <input type="submit" value="Login">
                         </div>
-                        <p>Ainda não tens conta? <a href="register.php" style="text-decoration:none">Registar-se.</a>.</p>
+                        <p>Ainda não possui conta? <a href="register.php" style="text-decoration:none">Clique aqui.</a></p>
                     </form>
-                </div>
+                </main>
 
 
                 <div class="footer">
