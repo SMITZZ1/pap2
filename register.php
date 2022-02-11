@@ -232,7 +232,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <input type="submit" value="Registar">
                             <input type="reset" class="button12" value="Cancelar">
                         </div>
-                        <p>Já tem conta criada? <a href="login.php" style="text-decoration:none;">Dê login</a></p>
+                        <p>Já tem conta? <a href="login.php" style="text-decoration:none;">Dê login</a></p>
                 </main>
                 </div>
 
