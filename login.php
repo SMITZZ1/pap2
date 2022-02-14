@@ -51,7 +51,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $login_err = "Nome ou password inválida.";
                 }
             } else{
-                echo "Errp.";
+                echo "Erro.";
             }
 
             mysqli_stmt_close($stmt);

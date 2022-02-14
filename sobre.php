@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
         <head>
-            <link rel="stylesheet" type="text/css" href="estilos.css">
             <!-- Bibliotecas extras -->
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
             <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+            <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+            <script src="Script.js"></script>
+
             <!-- Para o tipo de letra -->
             <link href='https://fonts.googleapis.com/css?family=Andika New Basic' rel='stylesheet'>
+            <link rel="stylesheet" type="text/css" href="estilos.css">
 
             <title>Stormi4u</title>
             
@@ -73,77 +76,18 @@
             </style>
 
         <body>
-            <div class="row">
-                <div class="topnav" id="myTopnav">
-                    <div class="logo">
-                        <a href="index.html" style="padding: 0px 0px 0px 0px; margin: 8px 8px 2px 8px; height: 38px;"> <img src="Imagens/Pap-Smitzz.png" heigth="50" width="80"> </a>
-                    </div>
-                    <!-- Dropdown -->
-                    <div class="dropdown">
-                        <button class="dropbtn">Homem 
-                            <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-content">
-                            <a href="#">Sweat</a>
-                            <a href="#">T-shirt</a>
-                            <div class="dropdown-content1">
-                                <a href="homem.html">Ver tudo</a>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="dropdown">
-                        <button class="dropbtn">Mulher 
-                            <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-content">
-                            <a href="#">Sweat</a>
-                            <a href="#">T-shirt</a>
-                            <div class="dropdown-content1">
-                                <a href="mulher.html">Ver tudo</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dropdown">
-                        <button class="dropbtn">Promoções 
-                            <i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-content">
-                            <a href="#">Sweat</a>
-                            <a href="#">T-shirt</a>
-                            <div class="dropdown-content1">
-                                <a href="#">Ver tudo</a>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#"><i class="fa fa-fw fa-heart"></i> Favoritos</a>
-                    <div class="headerrigth">
-                        <a href="#"><i class="fa fa-fw fa-shopping-cart"></i> Carrinho</a>
-                        <a href="login.php" title="Entrar / Registar"><i class="fa fa-fw fa-user"></i> Entrar / Registar</a>
-                    </div>
+            <?php // index.php
+                require_once 'menu.php';
+                if ($loggedin) echo " $utilizador, você está ligado.";
+                else           echo ' por favor registe-se ou entre.';
+            ?>
 
-                    <!-- Para quando estiver no mobile a navbar ficar responsiva -->
-                    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="Menu_Mobile()">&#9776;</a>
-                </div>
-            </div>
-            
-            <!-- Script para a navbar ficar responsiva -->
-            <script>
-                function Menu_Mobile() {
-                    var x = document.getElementById("myTopnav");
-                    if (x.className === "topnav") {
-                        x.className += " responsive";
-                    } else {
-                        x.className = "topnav";
-                    }
-                }
-            </script>
-            
             <div class="conteudo">
-
+                &nbsp
                 <div class="row">
                     
                 </div>
+            </div>
 
                 <div class="footer">
                     <div class="row">
@@ -156,7 +100,7 @@
                         <div class="col-3" style="text-align: center;">
                             <h2>Comprar</h2>
                             <a href="homem.html">Para Homem</a>
-                            <a href="mulher.html">Para Mulher</a>
+                            <a href="#">Para Mulher</a>
                             <a href="#">Promoções</a>
                         </div>
 
@@ -168,10 +112,11 @@
 
                         <div class="col-3" style="text-align: center;">
                             <h2>Informações</h2>
-                            <a href="termos.html">Termos e condições</a>
+                            <a href="#">Termos e condições</a>
                             <a href="https://www.livroreclamacoes.pt/Inicio/">Livro de reclamações</a>
                         </div>
                     </div>
+
                     <script>
                         window.onload = function()
                         {
