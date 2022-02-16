@@ -1,6 +1,15 @@
 <?php // header.php
   session_start();
 
+  //Função para dar logout
+  function destroiSessao()
+  {
+    $_SESSION=array();
+    if (session_id() != "" || isset($_COOKIE[session_name()]))
+      setcookie(session_name(), '', time()-2592000, '/');
+    session_destroy();
+  }
+
   if (isset($_SESSION['username']))
   {
     $utilizador     = $_SESSION['username'];
@@ -11,7 +20,7 @@ echo <<<_MAIN
 <div class="row">
 <div class="topnav" id="myTopnav">
     <div class="logo">
-        <a href="index.html" style="padding: 0px 0px 0px 0px; margin: 8px 8px 2px 8px; height: 38px;"> <img src="Imagens/Pap-Smitzz.png" heigth="50" width="80"> </a>
+        <a href="index.php" style="padding: 0px 0px 0px 0px; margin: 8px 8px 2px 8px; height: 38px;"> <img src="Imagens/Pap-Smitzz.png" heigth="50" width="80"> </a>
     </div>
     <!-- Dropdown -->
     <div class="dropdown">
@@ -22,7 +31,7 @@ echo <<<_MAIN
             <a href="#">Sweat</a>
             <a href="#">T-shirt</a>
             <div class="dropdown-content1">
-                <a href="homem.html">Ver tudo</a>
+                <a href="homem.php">Ver tudo</a>
             </div>
             
         </div>
@@ -35,7 +44,7 @@ echo <<<_MAIN
             <a href="#">Sweat</a>
             <a href="#">T-shirt</a>
             <div class="dropdown-content1">
-                <a href="mulher.html">Ver tudo</a>
+                <a href="mulher.php">Ver tudo</a>
             </div>
         </div>
     </div>

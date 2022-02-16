@@ -19,6 +19,7 @@
             <meta name="keywords" content="roupa stormi stormi4u">
             <meta name="author" content="Gabriel Carvalho">
             <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="icon" href="Imagens/logo.png">
 
             <style>
                 @media screen and (max-width: 600px) {
@@ -76,16 +77,14 @@
             </style>
 
         <body>
-            <?php // index.php
-                require_once 'menu.php';
-                if ($loggedin) echo " $utilizador, você está ligado.";
-                else           echo ' por favor registe-se ou entre.';
-            ?>
+        <?php // index.php
+            require_once 'menu.php';
+            echo '<p style="padding-top: 24px">';
+        ?>
 
-            <div class="conteudo">
-                &nbsp
+            <div> 
                 <div class="row">
-                    
+                <a data-role='button' href='logout.php'>Sair</a>
                 </div>
             </div>
 
@@ -99,8 +98,8 @@
 
                         <div class="col-3" style="text-align: center;">
                             <h2>Comprar</h2>
-                            <a href="homem.html">Para Homem</a>
-                            <a href="#">Para Mulher</a>
+                            <a href="homem.php">Para Homem</a>
+                            <a href="mulher.php">Para Mulher</a>
                             <a href="#">Promoções</a>
                         </div>
 
@@ -112,8 +111,8 @@
 
                         <div class="col-3" style="text-align: center;">
                             <h2>Informações</h2>
-                            <a href="termos.html">Termos e condições</a>
-                            <a href="https://www.livroreclamacoes.pt/Inicio/">Livro de reclamações</a>
+                            <a href="termos.php">Termos e condições</a>
+                            <a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank">Livro de reclamações</a>
                         </div>
                     </div>
 

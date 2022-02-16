@@ -93,6 +93,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <meta name="keywords" content="roupa stormi stormi4u">
             <meta name="author" content="Gabriel Carvalho">
             <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="icon" href="Imagens/logo.png">
 
             <style>
                 @media screen and (max-width: 600px) {
@@ -141,11 +142,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </style>
 
         <body>
-            <?php // index.php
-                require_once 'menu.php';
-                if ($loggedin) echo " $utilizador, você está ligado.";
-                else           echo ' por favor registe-se ou entre.';
-            ?>
+        <?php // index.php
+            require_once 'menu.php';
+            echo '<p style="padding-top: 24px">';
+        ?>
             
             <!-- Script para a navbar ficar responsiva -->
             <script>
@@ -159,25 +159,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 }
             </script>
 
-            <div class="conteudo">
+            <div>
                 <!-- Form para o Registo -->
                 <main class="login centrado">
                     <h2>Registe-se</h2>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="input-field">
                             <label>Nome</label><br />
-                            <input type="text" name="username" class="form-control" placeholder="Insira o seu nome" <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                            <input type="text" name="username" style="border-top:none; border-left:none; border-right:none; border-width: 1px;" class="form-control" placeholder="Insira o seu nome" <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
                             <span class="invalid-feedback"><?php echo $username_err; ?></span>
                         </div>    
                         <div class="input-field">
                             <label>Palavra Passe</label><br />
-                            <input type="password" name="password" class="form-control" placeholder="Insira a palavra passe"<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
+                            <input type="password" style="border-top:none; border-left:none; border-right:none; border-width: 1px;" name="password" class="form-control" placeholder="Insira a palavra passe"<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
                             <span class="invalid-feedback"><?php echo $password_err; ?></span>
                         </div>
                         <div class="input-field">
                             <br />
                             <label>Confirmar Palavra Passe</label><br />
-                            <input type="password" name="confirm_password" class="form-control" placeholder="Insira novamente a palavra passe" <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
+                            <input type="password" style="border-top:none; border-left:none; border-right:none; border-width: 1px;" name="confirm_password" class="form-control" placeholder="Insira novamente a palavra passe" <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
                             <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
                         </div>
                         <div class="input-field">
@@ -198,8 +198,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                         <div class="col-3" style="text-align: center;">
                             <h2>Comprar</h2>
-                            <a href="homem.html">Para Homem</a>
-                            <a href="mulher.thml">Para Mulher</a>
+                            <a href="homem.php">Para Homem</a>
+                            <a href="mulher.php">Para Mulher</a>
                             <a href="#">Promoções</a>
                         </div>
 
@@ -212,8 +212,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                         <div class="col-3" style="text-align: center;">
                             <h2>Informações</h2>
-                            <a href="termos.html">Termos e condições</a>
-                            <a href="https://www.livroreclamacoes.pt/Inicio/">Livro de reclamações</a>
+                            <a href="termos.php">Termos e condições</a>
+                            <a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank">Livro de reclamações</a>
                         </div>
                     </div>
                     <script>

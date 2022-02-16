@@ -304,6 +304,9 @@ form { /* form com display flex para o botão CONTINUAR ocupar a largura total d
 form .input-field:first-child { /* dentro do form, dentro da classe input.field, o primeiro filho terá margem inferior de 1.5rem - método utilizado para aplicar essa margem apenas no primeiro campo e não aplicando no segundo, assim, não aumentando a distância do segundo do botão CONTINUAR */
     margin-bottom: 1.5rem;
     width: 100%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
 }
 
 .input-field .underline::before {   /* formatação da classe underline ou linha abaixo dos campos */
@@ -362,6 +365,8 @@ form input[type="submit"]:hover { /* HOVER para dar efeito ao passar o mouse pel
     color: black;
     font-weight: 500;
 }
+
+
 
 .text-block {
     color: rgba(0, 0, 0, 0.7);

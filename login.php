@@ -42,7 +42,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["username"] = $username;                            
                             
                             // CASO ESTEJA OS DADOS TODOS BEM
-                            header("location: index.html");
+                            header("location: index.php");
                         } else{
                             $login_err = "Nome ou password inválida.";
                         }
@@ -79,6 +79,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <meta name="keywords" content="roupa stormi stormi4u">
             <meta name="author" content="Gabriel Carvalho">
             <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="icon" href="Imagens/logo.png">
 
             <style>
 
@@ -134,7 +135,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="row">
                 <div class="topnav" id="myTopnav">
                     <div class="logo">
-                        <a href="index.html" style="padding: 0px 0px 0px 0px; margin: 8px 8px 2px 8px; height: 38px;"> <img src="Imagens/Pap-Smitzz.png" heigth="50" width="80"> </a>
+                        <a href="index.php" style="padding: 0px 0px 0px 0px; margin: 8px 8px 2px 8px; height: 38px;"> <img src="Imagens/Pap-Smitzz.png" heigth="50" width="80"> </a>
                     </div>
                     <!-- Dropdown -->
                     <div class="dropdown">
@@ -145,7 +146,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <a href="#">Sweat</a>
                             <a href="#">T-shirt</a>
                             <div class="dropdown-content1">
-                                <a href="homem.html">Ver tudo</a>
+                                <a href="homem.php">Ver tudo</a>
                             </div>
                             
                         </div>
@@ -158,7 +159,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <a href="#">Sweat</a>
                             <a href="#">T-shirt</a>
                             <div class="dropdown-content1">
-                                <a href="mulher.html">Ver tudo</a>
+                                <a href="mulher.php">Ver tudo</a>
                             </div>
                         </div>
                     </div>
@@ -197,18 +198,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="input-field">
                             <label>Nome</label><br />
-                            <input type="text" name="username" placeholder="Insira o seu nome" class="form-control" <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                            <input type="text" style="border-top:none; border-left:none; border-right:none; border-width: 1px;" name="username" placeholder="Insira o seu nome" class="form-control" <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
                             <span class="invalid-feedback"><?php echo $username_err; ?></span>
                         </div>    
                         <div class="input-field">
                             <label>Palavra passe</label><br />
-                            <input type="password" name="password" placeholder="insira a palavra passe" class="form-control" <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
+                            <input type="password" style="border-top:none; border-left:none; border-right:none; border-width: 1px;" name="password" placeholder="Insira a palavra passe" class="form-control" <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
                             <span class="invalid-feedback"><?php echo $password_err; ?></span>
                         </div>
                         <div class="input-field">
                             <input type="submit" value="Login">
                         </div>
-                        <p>Ainda não possui conta? <a href="register.php" style="text-decoration:none">Clique aqui.</a></p>
+                        <p>Ainda não possui conta? <a href="register.php" style="text-decoration:none">Clique aqui</a></p>
                     </form>
                 </main>
 
@@ -223,8 +224,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                         <div class="col-3" style="text-align: center;">
                             <h2>Comprar</h2>
-                            <a href="homem.html">Para Homem</a>
-                            <a href="#">Para Mulher</a>
+                            <a href="homem.php">Para Homem</a>
+                            <a href="mulher.php">Para Mulher</a>
                             <a href="#">Promoções</a>
                         </div>
 
@@ -236,8 +237,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                         <div class="col-3" style="text-align: center;">
                             <h2>Informações</h2>
-                            <a href="termos.html">Termos e condições</a>
-                            <a href="https://www.livroreclamacoes.pt/Inicio/" >Livro de reclamações</a>
+                            <a href="termos.php">Termos e condições</a>
+                            <a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank">Livro de reclamações</a>
                         </div>
                     </div>
 
