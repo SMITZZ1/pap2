@@ -1,15 +1,6 @@
 <?php // header.php
   session_start();
 
-  //Função para dar logout
-  function destroiSessao()
-  {
-    $_SESSION=array();
-    if (session_id() != "" || isset($_COOKIE[session_name()]))
-      setcookie(session_name(), '', time()-2592000, '/');
-    session_destroy();
-  }
-
   if (isset($_SESSION['username']))
   {
     $utilizador     = $_SESSION['username'];
@@ -121,7 +112,20 @@ echo <<<_REGISTADO
     <a href="#"><i class="fa fa-fw fa-heart"></i> Favoritos</a>
     <div class="headerrigth">
         <a href="#"><i class="fa fa-fw fa-shopping-cart"></i> Carrinho</a>
-        <a href="perfil.php" title="Perfil"><i class="fa fa-fw fa-user"></i> Perfil</a>
+
+        <div class="dropdown">
+        <button class="dropbtn">Perfil 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="#">Sweat</a>
+            <a href="#">T-shirt</a>
+            <div class="dropdown-content1">
+                <a href="logout.php">Logout</a>
+            </div>
+        </div>
+    </div>
+        <!--<a href="perfil.php" title="Perfil"><i class="fa fa-fw fa-user"></i> Perfil</a>-->
     </div>
 
     <!-- Para quando estiver no mobile a navbar ficar responsiva -->
