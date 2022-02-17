@@ -25,7 +25,8 @@
                 @media screen and (max-width: 600px) {
                     .topnav a:not(:first-child), .dropdown .dropbtn {
                         display: none;
-                    }
+                        position: relative;
+                }
                     
                     .headerrigth a{
                         display: none;

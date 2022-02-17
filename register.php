@@ -99,6 +99,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 @media screen and (max-width: 600px) {
                     .topnav a:not(:first-child), .dropdown .dropbtn {
                         display: none;
+                        position: relative;
                     }
                     .headerrigth a{
                         display: none;
@@ -166,18 +167,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="input-field">
                             <label>Nome</label><br />
-                            <input type="text" name="username" style="border-top:none; border-left:none; border-right:none; border-width: 1px;" class="form-control" placeholder="Insira o seu nome" <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                            <input type="text" name="username" style="border-top:none; border-left:none; border-right:none; border-width: 1px;" class="form-control" <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
                             <span class="invalid-feedback"><?php echo $username_err; ?></span>
                         </div>    
                         <div class="input-field">
                             <label>Palavra Passe</label><br />
-                            <input type="password" style="border-top:none; border-left:none; border-right:none; border-width: 1px;" name="password" class="form-control" placeholder="Insira a palavra passe"<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
+                            <input type="password" style="border-top:none; border-left:none; border-right:none; border-width: 1px;" name="password" class="form-control" <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
                             <span class="invalid-feedback"><?php echo $password_err; ?></span>
                         </div>
                         <div class="input-field">
                             <br />
                             <label>Confirmar Palavra Passe</label><br />
-                            <input type="password" style="border-top:none; border-left:none; border-right:none; border-width: 1px;" name="confirm_password" class="form-control" placeholder="Insira novamente a palavra passe" <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
+                            <input type="password" style="border-top:none; border-left:none; border-right:none; border-width: 1px;" name="confirm_password" class="form-control" <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
                             <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
                         </div>
                         <div class="input-field">

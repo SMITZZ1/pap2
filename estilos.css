@@ -178,7 +178,7 @@ h3{
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
+  min-width: 90px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   position: fixed;
@@ -186,6 +186,7 @@ h3{
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px; 
   border: #f9f9f9, solid, 1px;
+  padding-top: 5px;
 }
 
 .dropdown-content a {

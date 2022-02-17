@@ -113,13 +113,13 @@ echo <<<_REGISTADO
     <div class="headerrigth">
         <a href="#"><i class="fa fa-fw fa-shopping-cart"></i> Carrinho</a>
 
-        <div class="dropdown">
-        <button class="dropbtn">Perfil 
+        <div class="dropdown" style="padding-right: 5px">
+        <button class="dropbtn ">Perfil 
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-            <a href="#">Sweat</a>
-            <a href="#">T-shirt</a>
+            
+            <a href="#">Perfil</a>
             <div class="dropdown-content1">
                 <a href="logout.php">Logout</a>
             </div>

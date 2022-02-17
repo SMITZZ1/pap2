@@ -86,6 +86,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 @media screen and (max-width: 600px) {
                     .topnav a:not(:first-child), .dropdown .dropbtn {
                         display: none;
+                        position: relative;
                     }
                     .headerrigth a{
                         display: none;
@@ -198,12 +199,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="input-field">
                             <label>Nome</label><br />
-                            <input type="text" style="border-top:none; border-left:none; border-right:none; border-width: 1px;" name="username" placeholder="Insira o seu nome" class="form-control" <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                            <input type="text" style="border-top:none; border-left:none; border-right:none; border-width: 1px;" name="username" class="form-control" <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
                             <span class="invalid-feedback"><?php echo $username_err; ?></span>
                         </div>    
                         <div class="input-field">
                             <label>Palavra passe</label><br />
-                            <input type="password" style="border-top:none; border-left:none; border-right:none; border-width: 1px;" name="password" placeholder="Insira a palavra passe" class="form-control" <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
+                            <input type="password" style="border-top:none; border-left:none; border-right:none; border-width: 1px;" name="password" class="form-control" <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
                             <span class="invalid-feedback"><?php echo $password_err; ?></span>
                         </div>
                         <div class="input-field">
