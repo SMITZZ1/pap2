@@ -1,4 +1,3 @@
-
 <?php 
 // Inicia e destrói sessões
 session_start(); 

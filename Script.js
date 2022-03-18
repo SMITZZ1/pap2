@@ -7,4 +7,3 @@ function Menu_Mobile() {
         x.className = "topnav";
     }
 }
-

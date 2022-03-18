@@ -240,7 +240,7 @@ h3{
 
 /* Para a imagem na página principal */
 .backhome{
-  background-image:url("Imagens/Modelo_Home.jpg");
+  background-image:url("imagens/Modelo_Home.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -275,7 +275,7 @@ main.login {    /* configurações da classe main.container, como cor de fundo, 
 
 main h2 {   /* configuraões do título h2, onde está a palavra LOGIN */
     font-weight: 600; /* definir a espessura da fonte */
-    margin-top: 2rem;
+    margin-top: -1rem;
     margin-bottom: 2rem; /* define a distância abaixo do texto usando medida em rem */
     position: relative; /* servirá para definir posição absoluta linhazinha roxa abaixo de login */
 }

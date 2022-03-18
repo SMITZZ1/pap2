@@ -93,54 +93,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <meta name="keywords" content="roupa stormi stormi4u">
             <meta name="author" content="Gabriel Carvalho">
             <meta name="viewport" content="width=device-width, initial-scale=1">
-            <link rel="icon" href="Imagens/logo.png">
+            <link rel="icon" href="imagens/logo.png">
 
-            <style>
-                @media screen and (max-width: 600px) {
-                    .topnav a:not(:first-child), .dropdown .dropbtn {
-                        display: none;
-                        position: relative;
-                    }
-                    .headerrigth a{
-                        display: none;
-                    }
-                    .topnav a.icon {
-                        float: right;
-                        display: block;
-                    }
-                    
-                }
-
-                @media screen and (max-width: 600px) {
-                    .topnav.responsive {position: fixed;}
-                    .topnav.responsive .icon {
-                        position: absolute;
-                        right: 0;
-                        top: 0;
-                }
-                .topnav.responsive a {
-                    float: none;
-                    display: block;
-                    text-align: left;
-                }
-                
-                .topnav.responsive .dropdown {float: none;}
-                .topnav.responsive .dropdown-content {position: relative;}
-                .topnav.responsive .dropdown .dropbtn {
-                    display: block;
-                    width: 100%;
-                    text-align: left;
-                }
-                
-                .headerrigth{
-                    position: relative;
-                    display: block;
-                    width: 100%;
-                    float: none;
-                }
-                
-                }
-            </style>
 
         <body>
         <?php // index.php
@@ -193,8 +147,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <div class="row">
                         <div class="col-3" style="text-align: center;">
                             <h2>Stormi4u</h2>
-                            <a href="#">Contactos</a>
-                            <a href="#">Sobre nós</a>
+                            <a href="contactos.php">Contactos</a>
+                            <a href="sobre.php">Sobre nós</a>
                         </div>
 
                         <div class="col-3" style="text-align: center;">

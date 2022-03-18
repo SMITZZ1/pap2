@@ -19,73 +19,31 @@
             <meta name="keywords" content="roupa stormi stormi4u">
             <meta name="author" content="Gabriel Carvalho">
             <meta name="viewport" content="width=device-width, initial-scale=1">
-            <link rel="icon" href="Imagens/logo.png">
-
-            <style>
-                @media screen and (max-width: 600px) {
-                    .topnav a:not(:first-child), .dropdown .dropbtn {
-                        display: none;
-                        position: relative;
-                    }
-                    
-                    .headerrigth a{
-                        display: none;
-                    }
-                    .infos4{
-                        border-right: 0px;
-                        margin-left: 10px;
-                        margin-right: 10px;
-                        border-top-style: solid;
-                        border-top-width: 1px;
-                        border-top-color: #000000;
-                        height: 70%;
-                        position: relative;
-                    }
-                    .topnav a.icon {
-                        float: right;
-                        display: block;
-                    }
-                }
-
-                @media screen and (max-width: 600px) {
-                    .topnav.responsive {position: fixed;}
-                    .topnav.responsive .icon {
-                        position: absolute;
-                        right: 0;
-                        top: 0;
-                    }
-                    .topnav.responsive a {
-                        float: none;
-                        display: block;
-                        text-align: left;
-                    }
-                    
-                    .topnav.responsive .dropdown {float: none;}
-                    .topnav.responsive .dropdown-content {position: relative;}
-                    .topnav.responsive .dropdown .dropbtn {
-                        display: block;
-                        width: 100%;
-                        text-align: left;
-                    }
-                    
-                    .headerrigth{
-                        position: relative;
-                        display: block;
-                        width: 100%;
-                        float: none;
-                    }
-                }
-            </style>
+            <link rel="icon" href="imagens/logo.png">
+        </head>
 
         <body>
             <?php // index.php
                 require_once 'menu.php';
                 echo '<p style="padding-top: 24px">';
             ?>
+
             <div>
                 &nbsp
                 <div class="row">
+                    <div class="col-1">
+                    </div>
+                    <div class="col-10">
+                        <p><b>Sobre nós</b></p>
+                        <p style="text-align: justify;">
+                        A nossa empresa tem como objetivo tornar a utilização de roupa amiga do ambiente mais popular, ajudando assim a melhorar a situação ambiental que estamos a passar nos últimos anos.<br /><br />
+                        Os portugueses deitam fora em média 200 mil toneladas de roupas por ano, mas com o simples esforço de comprar roupas reutilizadas, podemos reduzir esse número drasticamente.
+                        </p><br />
+                    </div>
                     
+                    <div class="col-1">
+
+                    </div>
                 </div>
             </div>
 
@@ -93,7 +51,7 @@
                     <div class="row">
                         <div class="col-3" style="text-align: center;">
                             <h2>Stormi4u</h2>
-                            <a href="#">Contactos</a>
+                            <a href="contactos.php">Contactos</a>
                             <a href="#">Sobre nós</a>
                         </div>
 

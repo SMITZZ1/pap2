@@ -11,7 +11,7 @@ echo <<<_MAIN
 <div class="row">
 <div class="topnav" id="myTopnav">
     <div class="logo">
-        <a href="index.php" style="padding: 0px 0px 0px 0px; margin: 8px 8px 2px 8px; height: 38px;"> <img src="Imagens/Pap-Smitzz.png" heigth="50" width="80"> </a>
+        <a href="index.php" style="padding: 0px 0px 0px 0px; margin: 8px 8px 2px 8px; height: 38px;"> <img src="imagens/Pap-Smitzz.png" heigth="50" width="80"> </a>
     </div>
     <!-- Dropdown -->
     <div class="dropdown">
@@ -69,7 +69,7 @@ echo <<<_REGISTADO
 <div class="row">
 <div class="topnav" id="myTopnav">
     <div class="logo">
-        <a href="index.php" style="padding: 0px 0px 0px 0px; margin: 8px 8px 2px 8px; height: 38px;"> <img src="Imagens/Pap-Smitzz.png" heigth="50" width="80"> </a>
+        <a href="index.php" style="padding: 0px 0px 0px 0px; margin: 8px 8px 2px 8px; height: 38px;"> <img src="imagens/Pap-Smitzz.png" heigth="50" width="80"> </a>
     </div>
     <!-- Dropdown -->
     <div class="dropdown">
@@ -101,7 +101,7 @@ echo <<<_REGISTADO
         <button class="dropbtn">Promoções 
             <i class="fa fa-caret-down"></i>
         </button>
-        <div class="dropdown-content">
+        <div class="dropdown-content" style="min-width: 90px;">
             <a href="#">Sweat</a>
             <a href="#">T-shirt</a>
             <div class="dropdown-content1">
@@ -119,7 +119,7 @@ echo <<<_REGISTADO
         </button>
         <div class="dropdown-content">
             
-            <a href="#">Perfil</a>
+            <a href="perfil.php">Perfil</a>
             <div class="dropdown-content1">
                 <a href="logout.php">Logout</a>
             </div>

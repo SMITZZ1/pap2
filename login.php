@@ -79,7 +79,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <meta name="keywords" content="roupa stormi stormi4u">
             <meta name="author" content="Gabriel Carvalho">
             <meta name="viewport" content="width=device-width, initial-scale=1">
-            <link rel="icon" href="Imagens/logo.png">
+            <link rel="icon" href="imagens/logo.png">
 
             <style>
 
@@ -136,7 +136,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="row">
                 <div class="topnav" id="myTopnav">
                     <div class="logo">
-                        <a href="index.php" style="padding: 0px 0px 0px 0px; margin: 8px 8px 2px 8px; height: 38px;"> <img src="Imagens/Pap-Smitzz.png" heigth="50" width="80"> </a>
+                        <a href="index.php" style="padding: 0px 0px 0px 0px; margin: 8px 8px 2px 8px; height: 38px;"> <img src="imagens/Pap-Smitzz.png" heigth="50" width="80"> </a>
                     </div>
                     <!-- Dropdown -->
                     <div class="dropdown">
@@ -219,8 +219,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <div class="row">
                         <div class="col-3" style="text-align: center;">
                             <h2>Stormi4u</h2>
-                            <a href="#">Contactos</a>
-                            <a href="#">Sobre nós</a>
+                            <a href="contactos.php">Contactos</a>
+                            <a href="sobre.php">Sobre nós</a>
                         </div>
 
                         <div class="col-3" style="text-align: center;">
