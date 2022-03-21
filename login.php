@@ -44,11 +44,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             // CASO ESTEJA OS DADOS TODOS BEM
                             header("location: index.php");
                         } else{
-                            $login_err = "Nome ou password inválida.";
+                            $login_err = " Nome ou password inválida.";
                         }
                     }
                 } else{
-                    $login_err = "Nome ou password inválida.";
+                    $login_err = " Nome ou password inválida.";
                 }
             } else{
                 echo "Erro.";
@@ -193,7 +193,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <h2>Login</h2>
                     <?php 
                     if(!empty($login_err)){
-                        echo '<div class="alert alert-danger">' . $login_err . '</div>';
+                        echo '<i style="color:red" class="fa fa-exclamation-circle"></i><span style="color:red">' . $login_err . '</span></i>';
                     }        
                     ?>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">

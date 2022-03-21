@@ -29,7 +29,7 @@
 
             <div> 
                 <div class="row">
-                <a data-role='button' href='logout.php'>Sair</a>
+                    
                 </div>
             </div>
 

@@ -37,19 +37,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     if(empty(trim($_POST["password"]))){
-        $password_err = "Insira a password.";     
+        $password_err = " Por favor insira a password.";     
     } elseif(strlen(trim($_POST["password"])) < 6){
-        $password_err = "A password tem que ter pelo menos 6 letras.";
+        $password_err = " A password tem que ter pelo menos 6 letras.";
     } else{
         $password = trim($_POST["password"]);
     }
     
     if(empty(trim($_POST["confirm_password"]))){
-        $confirm_password_err = "Confirme a Password.";     
+        $confirm_password_err =  " Por favor confirme a Password.";     
     } else{
         $confirm_password = trim($_POST["confirm_password"]);
         if(empty($password_err) && ($password != $confirm_password)){
-            $confirm_password_err = "A password não coincide.";
+            $confirm_password_err = " A password não coincide.";
         }
     }
     
@@ -122,18 +122,36 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <div class="input-field">
                             <label>Nome</label><br />
                             <input type="text" name="username" style="border-top:none; border-left:none; border-right:none; border-width: 1px;" class="form-control" <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
-                            <span class="invalid-feedback"><?php echo $username_err; ?></span>
+                            <span class="invalid-feedback">
+                                <?php
+                                    if(!empty($username_err)){
+                                        echo '<i style="color:red" class="fa fa-exclamation-circle"></i><span style="color:red">' . $username_err . '</span></i>';
+                                    }  
+                                ?>
+                            </span>
                         </div>    
                         <div class="input-field">
                             <label>Palavra Passe</label><br />
                             <input type="password" style="border-top:none; border-left:none; border-right:none; border-width: 1px;" name="password" class="form-control" <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
-                            <span class="invalid-feedback"><?php echo $password_err; ?></span>
+                            <span class="invalid-feedback">
+                                <?php
+                                    if(!empty($password_err)){
+                                        echo '<i style="color:red" class="fa fa-exclamation-circle"></i><span style="color:red">' . $password_err . '</span></i>';
+                                    }  
+                                ?>
+                            </span>
                         </div>
                         <div class="input-field">
                             <br />
                             <label>Confirmar Palavra Passe</label><br />
                             <input type="password" style="border-top:none; border-left:none; border-right:none; border-width: 1px;" name="confirm_password" class="form-control" <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
-                            <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
+                            <span class="invalid-feedback">
+                                <?php
+                                    if(!empty($confirm_password_err)){
+                                        echo '<i style="color:red" class="fa fa-exclamation-circle"></i><span style="color:red">' . $confirm_password_err . '</span></i>';
+                                    }  
+                                ?>
+                            </span>
                         </div>
                         <div class="input-field">
                             <input type="submit" value="Registar">
