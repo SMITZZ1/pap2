@@ -35,14 +35,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
-                            session_start();
+                            
                             
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;                            
                             
-                            // CASO ESTEJA OS DADOS TODOS BEM
-                            header("location: index.php");
+                            $ligacao = mysqli_connect('localhost', 'root', '', 'stormi') or die ('Não e possivel ligar a base de dados');
+                            $sql="SELECT cargo FROM users WHERE username='$username'";
+
+                            $consulta = mysqli_query($ligacao, $sql);
+
+                            if (mysqli_num_rows($consulta) == 1) {
+                                while($row = mysqli_fetch_array($consulta, MYSQLI_ASSOC)) {
+                                    if($row['cargo'] == 'admin'){
+                                        header("Location: admin.php");
+                                    }
+                                    if($row['cargo'] == 'user'){
+                                        header("Location: index.php");
+                                    }
+                                }
+                            }
+
+                            
                         } else{
                             $login_err = " Nome ou password inválida.";
                         }

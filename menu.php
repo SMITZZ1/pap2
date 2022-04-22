@@ -5,7 +5,11 @@
   {
     $utilizador     = $_SESSION['username'];
     $loggedin = TRUE;
+
+    require_once('config.php');
   }
+
+
   else $loggedin = FALSE;
 echo <<<_MAIN
 <div class="row">
@@ -64,7 +68,7 @@ echo <<<_MAIN
 _MAIN;
   if ($loggedin)
   {
-	  // se estiver registado
+// se estiver registado
 echo <<<_REGISTADO
 <div class="row">
 <div class="topnav" id="myTopnav">
@@ -133,10 +137,9 @@ echo <<<_REGISTADO
 </div>
 </div>
 _REGISTADO;
+	  
   }
   else{
 	  // se não estiver registado
   }
   ?>
-
-         
