@@ -25,7 +25,7 @@
         <body>
             <?php // index.php
                 require_once 'menu.php';
-                echo '<p style="padding-top: 24px">';
+                echo '<p style="padding-top: 2px">';
             ?>
 
             <div>
@@ -34,11 +34,11 @@
                     <div class="col-1">
                     </div>
                     <div class="col-10">
-                        <p><b>Sobre nós</b></p>
-                        <p style="text-align: justify;">
-                        A nossa empresa tem como objetivo tornar a utilização de roupa amiga do ambiente mais popular, ajudando assim a melhorar a situação ambiental que estamos a passar nos últimos anos.<br /><br />
+                        <h2><center><b>Sobre nós</b></center></h2>
+                        <p style="text-align: justify;"><center>
+                        A Stormi4U tem como objetivo tornar a utilização de roupa amiga do ambiente mais popular, ajudando assim a melhorar a situação ambiental que estamos a passar nos últimos anos.<br /><br />
                         Os portugueses deitam fora em média 200 mil toneladas de roupas por ano, mas com o simples esforço de comprar roupas reutilizadas, podemos reduzir esse número drasticamente.
-                        </p><br />
+                        </p><br /></center>
                     </div>
                     
                     <div class="col-1">
