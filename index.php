@@ -1,4 +1,21 @@
 <!DOCTYPE html>
+
+<?php 
+    require_once('inc/config.php');    
+    require_once('inc/helpers.php');  
+
+    $sql = "SELECT p.*,pdi.img from products p
+                    INNER JOIN product_images pdi ON pdi.product_id = p.id
+                    WHERE pdi.is_featured = 1";
+    $handle = $db->prepare($sql);
+    $handle->execute();
+    $getAllProducts = $handle->fetchAll(PDO::FETCH_ASSOC);
+
+    $pageTitle = 'Cool T-Shirt Shop';
+	$metaDesc = 'Demo PHP shopping cart get products from database';
+    include('layouts/header.php');
+?>
+
 <html lang="pt-PT">
         <head>
             <!-- Bibliotecas extras -->

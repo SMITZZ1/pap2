@@ -115,7 +115,8 @@ echo <<<_REGISTADO
     </div>
     <a href="#"><i class="fa fa-fw fa-heart"></i> Favoritos</a>
     <div class="headerrigth">
-        <a href="#"><i class="fa fa-fw fa-shopping-cart"></i> Carrinho</a>
+        <a href="cart.php"><i class="fa fa-fw fa-shopping-cart"></i> Carrinho</a>
+
 
         <div class="dropdown" style="padding-right: 5px">
         <button class="dropbtn ">Perfil 
